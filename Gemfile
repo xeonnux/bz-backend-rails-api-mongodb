@@ -5,12 +5,17 @@ ruby "3.1.2"
 gem "mongoid"
 
 gem "devise"
+gem 'devise-jwt'
+gem 'jsonapi-serializer'
 
 gem 'dotenv-rails', groups: [:development, :test]
 
 gem 'simple_token_authentication', '~> 1.0' # see semver.org
 
 gem "omniauth"
+
+# Used for storing session data in MongoDB
+gem 'mongo_store'
 
 gem "rack-cors"
 

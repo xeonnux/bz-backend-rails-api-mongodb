@@ -1,9 +1,19 @@
 class User
   include Mongoid::Document
+  include Devise::JWT::RevocationStrategies::JTIMatcher
+
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable
   devise :database_authenticatable, :registerable,
-         :recoverable, :rememberable, :validatable
+         :recoverable, :rememberable, :validatable, :jwt_authenticatable, jwt_revocation_strategy: self
+
+  ## Database authenticatable
+  field :email,              type: String, default: ""
+  field :encrypted_password, type: String, default: ""
+
+  ## JWT
+  field :jti, type: String
+
 
   ## Database authenticatable
   field :email,              type: String, default: ""
