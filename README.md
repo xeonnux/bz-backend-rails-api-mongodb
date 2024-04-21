@@ -25,14 +25,14 @@ We edit the mongoid.yml file to include the following:
 development:
   clients:
     default:
-      uri: mongodb+srv://<username>:<password>@<serverNameReference>.mongodb.net/<ClusterName>?retryWrites=true&w=majority
+      uri: mongodb+srv://<%= ENV['MONGO_USERNAME'] %>:<%= ENV['MONGO_PASSWORD'] %>@bonzanana.v9abh6n.mongodb.net/BonZanana?retryWrites=true&w=majority
       options:
         server_selection_timeout: 30
   options:
     raise_not_found_error: true
 
 ```
-This is the connection string to the MongoDB Atlas database. Be sure to replace the values between the <> with your own values.
+This is the connection string to the MongoDB Atlas database. Be sure to declare the environment variables in the .env file or in the environment variables of your server.
 
 
 
