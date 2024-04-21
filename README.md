@@ -1,24 +1,39 @@
-# README
+Backend with JWT and Devise Authentification for a NextJs Application connected to a MongoDB database. 
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+## Installation of MongoDB (using Mongoid and Atlas)
+- [Atlas Documentation for getting started & Creating an account](https://www.mongodb.com/docs/atlas/getting-started/)
+- [Mongoid Documentation](https://docs.mongodb.com/mongoid/current/)
 
-Things you may want to cover:
+## Installation of mongoid gem
+Inside of the gemfile add the following line:
+```ruby
+gem 'mongoid' # do not specify a version to get the latest compatible version
+```
+Then run the following command:
+```bash
+bundle install
+```
+Then run the following command to generate the mongoid.yml file:
+```bash
+rails g mongoid:config
+```
 
-* Ruby version
+This will generate the necessary configuration file for mongoid in the config folder.
 
-* System dependencies
+We edit the mongoid.yml file to include the following:
+```yml
+development:
+  clients:
+    default:
+      uri: mongodb+srv://<username>:<password>@<serverNameReference>.mongodb.net/<ClusterName>?retryWrites=true&w=majority
+      options:
+        server_selection_timeout: 30
+  options:
+    raise_not_found_error: true
 
-* Configuration
+```
+This is the connection string to the MongoDB Atlas database. Be sure to replace the values between the <> with your own values.
 
-* Database creation
 
-* Database initialization
 
-* How to run the test suite
 
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
