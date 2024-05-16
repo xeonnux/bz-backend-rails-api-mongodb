@@ -1,4 +1,7 @@
 Rails.application.routes.draw do
+  get 'secured_pages/dashboard'
+  get 'secured_pages/documentation'
+  get 'secured_pages/companies'
   devise_for :users, path: '', path_names: {
     sign_in: 'login',
     sign_out: 'logout',

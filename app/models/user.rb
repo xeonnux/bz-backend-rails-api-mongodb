@@ -14,6 +14,8 @@ class User
   ## JWT
   field :jti, type: String
 
+  ## Claims for authorisation
+  field :claims, type: Array
 
   ## Database authenticatable
   field :email,              type: String, default: ""

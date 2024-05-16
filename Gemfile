@@ -5,7 +5,7 @@ ruby "3.1.2"
 gem "mongoid"
 
 gem "devise"
-gem 'devise-jwt'
+gem 'devise-jwt', "= 0.10.0"
 gem 'jsonapi-serializer'
 
 gem 'dotenv-rails', groups: [:development, :test]
